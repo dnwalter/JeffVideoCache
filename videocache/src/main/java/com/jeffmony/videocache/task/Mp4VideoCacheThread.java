@@ -138,6 +138,7 @@ public class Mp4VideoCacheThread implements Runnable {
         }
     }
 
+    // todo ousy 2 下载逻辑
     private void downloadVideo() {
         File videoFile;
         try {
@@ -181,6 +182,7 @@ public class Mp4VideoCacheThread implements Runnable {
                     cachedSize += readLength;
                 }
 
+                // todo ousy 更新缓存进度条
                 notifyOnCacheProgress(cachedSize);
 
                 if (cachedSize >= requestEnd) {

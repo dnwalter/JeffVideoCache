@@ -118,6 +118,7 @@ public class Mp4CacheTask extends VideoCacheTask {
             notifyOnCacheProgress(cachedSize, speed, percent);
         }
 
+        // todo ousy 3
         @Override
         public void onCacheRangeCompleted(VideoRange range) {
             notifyOnCacheRangeCompleted(range.getEnd());
@@ -254,6 +255,7 @@ public class Mp4CacheTask extends VideoCacheTask {
         mListener.onTaskProgress(percent, mCachedSize, mSpeed);
     }
 
+    // todo ousy 进行下一段下载
     private void notifyOnCacheRangeCompleted(long startPosition) {
         //这时候已经缓存好了一段分片,可以更新一下video range数据结构了
         updateVideoRangeInfo();

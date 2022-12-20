@@ -10,7 +10,7 @@
         android:layout_margin="20dp">
         
         <EditText
-            android:text="https://data.xglgd.com/m3u8/imj/hd/20210406/829c53dead924e0ca1b9b9f7130803871617696108.1853122.m3u8"
+            android:text="https://raw.githubusercontent.com/danikula/AndroidVideoCache/master/files/orange2.mp4"
             android:id="@+id/video_url_edit_text"
             android:textColor="@color/black"
             android:textSize="18sp"

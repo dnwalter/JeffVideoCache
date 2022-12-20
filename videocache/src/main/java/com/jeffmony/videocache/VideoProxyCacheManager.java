@@ -430,6 +430,7 @@ public class VideoProxyCacheManager {
         startVideoCacheTask(cacheTask, cacheInfo);
     }
 
+    // todo ousy 1
     private void startVideoCacheTask(VideoCacheTask cacheTask, VideoCacheInfo cacheInfo) {
         final Object lock = VideoLockManager.getInstance().getLock(cacheInfo.getMd5());
         cacheTask.setTaskListener(new IVideoCacheTaskListener() {

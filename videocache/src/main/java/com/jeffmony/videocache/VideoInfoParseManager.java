@@ -278,6 +278,7 @@ public class VideoInfoParseManager {
         }
     }
 
+    // todo ousy 1、要知道总视频大小
     private void parseNonM3U8VideoInfo(VideoCacheInfo cacheInfo, HttpURLConnection connection) {
         cacheInfo.setVideoType(VideoType.OTHER_TYPE);
         String length = connection.getHeaderField("content-length");
