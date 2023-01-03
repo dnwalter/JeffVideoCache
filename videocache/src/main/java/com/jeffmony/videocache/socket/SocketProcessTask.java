@@ -50,6 +50,7 @@ public class SocketProcessTask implements Runnable {
                 long currentTime = System.currentTimeMillis();
                 ProxyCacheUtils.setSocketTime(currentTime);
                 if (url.contains(ProxyCacheUtils.VIDEO_PROXY_SPLIT_STR)) {
+                    // todo ousy socket解析 URL
                     String[] videoInfoArr = url.split(ProxyCacheUtils.VIDEO_PROXY_SPLIT_STR);
                     if (videoInfoArr.length < 3) {
                         throw new VideoCacheException("Local Socket Error Argument");
