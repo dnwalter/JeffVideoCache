@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <!-- android:allowNativeHeapPointerTagging="false" 因为ijkplayer不适应手机Android高级版本，所以要加这句，或者替换最新的ijkplayer库 -->
+    <!--android11要加 android:allowNativeHeapPointerTagging="false" 因为ijkplayer不适应手机Android高级版本，所以要加这句，或者替换最新的ijkplayer库 -->
     <application
         android:name=".JeffApplication"
         android:allowBackup="true"
