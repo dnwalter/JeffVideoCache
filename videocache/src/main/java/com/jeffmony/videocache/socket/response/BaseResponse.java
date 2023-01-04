@@ -1,6 +1,7 @@
 package com.jeffmony.videocache.socket.response;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.jeffmony.videocache.VideoProxyCacheManager;
 import com.jeffmony.videocache.common.VideoCacheException;
@@ -67,19 +68,24 @@ public abstract class BaseResponse {
             PrintWriter pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream, new ContentType(mMimeType).getEncoding())),false);
             if (TextUtils.isEmpty(mProtocolVersion)) {
                 pw.append("HTTP/1.1 ");
+                Log.e("ousyxx", ":0");
             } else {
+                Log.e("ousyxx", mProtocolVersion + ":1");
                 pw.append(mProtocolVersion + " ");
             }
             pw.append(mResponseState.getDescription()).append(" \r\n");
             if (!TextUtils.isEmpty(mMimeType)) {
+                Log.e("ousyxx", ":2");
                 appendHeader(pw, CONTENT_TYPE, mMimeType);
             }
             appendHeader(pw, DATE, gmtFormat.format(new Date()));
             appendHeader(pw, CONNECTION, (mRequest.keepAlive() ? "keep-alive" : "close"));
             if (mRequest.requestMethod() != Method.HEAD) {
+                Log.e("ousyxx", ":3");
                 appendHeader(pw, TRANSFER_ENCODING, "chunked");
             }
             if (mResponseState == ResponseState.PARTIAL_CONTENT) {
+                Log.e("ousyxx", ":4");
                 long contentLength = mTotalSize - mStartPosition + 1;
                 appendHeader(pw, CONTENT_LENGTH, String.valueOf(contentLength));
 

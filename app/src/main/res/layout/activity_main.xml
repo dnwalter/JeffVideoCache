@@ -9,19 +9,8 @@
         android:orientation="vertical"
         android:layout_margin="20dp">
         
-<!--        <EditText-->
-<!--            android:text="https://vfx.mtime.cn/Video/2019/03/19/mp4/190319212559089721.mp4"-->
-<!--            android:id="@+id/video_url_edit_text"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:textSize="18sp"-->
-<!--            android:hint="Please input video url"-->
-<!--            android:padding="10dp"-->
-<!--            android:lines="4"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content" />-->
-
         <EditText
-            android:text="https://raw.githubusercontent.com/danikula/AndroidVideoCache/master/files/orange2.mp4"
+            android:text="https://vfx.mtime.cn/Video/2019/03/19/mp4/190319212559089721.mp4"
             android:id="@+id/video_url_edit_text"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -30,6 +19,17 @@
             android:lines="4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+<!--        <EditText-->
+<!--            android:text="https://raw.githubusercontent.com/danikula/AndroidVideoCache/master/files/orange2.mp4"-->
+<!--            android:id="@+id/video_url_edit_text"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="18sp"-->
+<!--            android:hint="Please input video url"-->
+<!--            android:padding="10dp"-->
+<!--            android:lines="4"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
 
         <RadioGroup
             android:id="@+id/player_group"
