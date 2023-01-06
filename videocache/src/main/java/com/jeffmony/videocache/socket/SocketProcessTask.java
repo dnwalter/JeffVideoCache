@@ -1,6 +1,7 @@
 package com.jeffmony.videocache.socket;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.jeffmony.videocache.common.VideoCacheException;
 import com.jeffmony.videocache.socket.request.HttpRequest;
@@ -9,7 +10,6 @@ import com.jeffmony.videocache.socket.response.M3U8Response;
 import com.jeffmony.videocache.socket.response.M3U8SegResponse;
 import com.jeffmony.videocache.socket.response.Mp4Response;
 import com.jeffmony.videocache.utils.HttpUtils;
-import com.jeffmony.videocache.utils.LogUtils;
 import com.jeffmony.videocache.utils.ProxyCacheUtils;
 
 import java.io.InputStream;
@@ -32,7 +32,7 @@ public class SocketProcessTask implements Runnable {
     @Override
     public void run() {
         sRequestCountAtomic.addAndGet(1);
-        LogUtils.i(TAG, "sRequestCountAtomic : " + sRequestCountAtomic.get());
+        Log.i(TAG, "sRequestCountAtomic : " + sRequestCountAtomic.get());
         OutputStream outputStream = null;
         InputStream inputStream = null;
         try {
@@ -45,7 +45,7 @@ public class SocketProcessTask implements Runnable {
                 String url = request.getUri();
                 url = url.substring(1);
                 url = ProxyCacheUtils.decodeUriWithBase64(url);
-                LogUtils.d(TAG, "request url=" + url);
+                Log.d(TAG, "request url=" + url);
 
                 long currentTime = System.currentTimeMillis();
                 ProxyCacheUtils.setSocketTime(currentTime);
@@ -60,7 +60,7 @@ public class SocketProcessTask implements Runnable {
                     String videoHeaders = videoInfoArr[2];
 
                     Map<String, String> headers = ProxyCacheUtils.str2Map(videoHeaders);
-                    LogUtils.d(TAG, videoUrl + "\n" + videoTypeInfo + "\n" + videoHeaders);
+                    Log.d(TAG, videoUrl + "\n" + videoTypeInfo + "\n" + videoHeaders);
 
                     if (TextUtils.equals(ProxyCacheUtils.M3U8, videoTypeInfo)) {
                         response = new M3U8Response(request, videoUrl, headers, currentTime);
@@ -88,7 +88,7 @@ public class SocketProcessTask implements Runnable {
                     String fileName = videoInfoArr[2];
                     String videoHeaders = videoInfoArr[3];
                     Map<String, String> headers = ProxyCacheUtils.str2Map(videoHeaders);
-                    LogUtils.d(TAG, parentUrl + "\n" + videoUrl + "\n" + fileName + "\n" + videoHeaders);
+                    Log.d(TAG, parentUrl + "\n" + videoUrl + "\n" + fileName + "\n" + videoHeaders);
                     response = new M3U8SegResponse(request, parentUrl, videoUrl, headers, currentTime, fileName);
                     response.sendResponse(mSocket, outputStream);
                 } else {
@@ -99,13 +99,13 @@ public class SocketProcessTask implements Runnable {
 
         } catch (Exception e) {
             e.printStackTrace();
-            LogUtils.w(TAG,"socket request failed, exception=" + e);
+            Log.w(TAG,"socket request failed, exception=" + e);
         } finally {
             ProxyCacheUtils.close(outputStream);
             ProxyCacheUtils.close(inputStream);
             ProxyCacheUtils.close(mSocket);
             int count = sRequestCountAtomic.decrementAndGet();
-            LogUtils.i(TAG, "finally Socket solve count = " + count);
+            Log.i(TAG, "finally Socket solve count = " + count);
         }
     }
 }

@@ -9,38 +9,47 @@
         android:orientation="vertical">
 
         <TextureView
-            android:layout_marginTop="20dp"
             android:id="@+id/video_textureview"
             android:layout_width="match_parent"
-            android:layout_height="300dp" />
-        
+            android:layout_height="300dp"
+            android:layout_marginTop="20dp" />
+
         <SeekBar
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:max="1000"
             android:id="@+id/video_progress_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:max="1000" />
+
+        <SeekBar
+            android:id="@+id/video_progress_view2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:max="1000" />
+
         <TextView
             android:id="@+id/video_time_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="时间"
-            android:visibility="gone"
-            android:textSize="25sp"
             android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:textSize="25sp"
+            android:visibility="gone" />
 
         <ImageButton
             android:id="@+id/video_status_btn"
-            android:layout_marginTop="10dp"
-            android:visibility="gone"
-            android:background="@drawable/play_icon"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/play_icon"
+            android:visibility="gone" />
 
     </LinearLayout>
 

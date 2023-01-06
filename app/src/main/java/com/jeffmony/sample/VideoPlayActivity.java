@@ -49,6 +49,7 @@ public class VideoPlayActivity extends Activity {
 
     private TextureView mVideoView;
     private SeekBar mProgressView;
+    private SeekBar mProgressView2;
     private TextView mTimeView;
     private ImageButton mVideoStatusBtn;
     private VideoStatus mVideoStatus;
@@ -80,6 +81,7 @@ public class VideoPlayActivity extends Activity {
 
         mVideoView = findViewById(R.id.video_textureview);
         mProgressView = findViewById(R.id.video_progress_view);
+        mProgressView2 = findViewById(R.id.video_progress_view2);
         mTimeView = findViewById(R.id.video_time_view);
         mVideoStatusBtn = findViewById(R.id.video_status_btn);
 
@@ -210,6 +212,7 @@ public class VideoPlayActivity extends Activity {
             long bufferedPosition = mPlayer.getBufferedPosition();
             int bufferedProgress = (int) (1.0f * bufferedPosition / totalDuration * MAX_PROGRESS);
             mProgressView.setSecondaryProgress(bufferedProgress);
+            mProgressView2.setProgress(bufferedProgress);
         }
         mHandler.removeMessages(MSG_UPDATE_VIDEOTIME);
         mHandler.sendEmptyMessageDelayed(MSG_UPDATE_VIDEOTIME, 1000);
