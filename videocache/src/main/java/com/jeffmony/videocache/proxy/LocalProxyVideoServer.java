@@ -1,5 +1,7 @@
 package com.jeffmony.videocache.proxy;
 
+import android.util.Log;
+
 import com.jeffmony.videocache.socket.SocketProcessTask;
 import com.jeffmony.videocache.utils.LogUtils;
 import com.jeffmony.videocache.utils.ProxyCacheUtils;
@@ -61,16 +63,19 @@ public class LocalProxyVideoServer {
     }
 
     private void initSocketProcessor() {
+        Log.e("ousy--", "1");
         do {
             try {
                 Socket socket = mLocalServer.accept();
                 if (ProxyCacheUtils.getConfig().getConnTimeOut() > 0)
                     socket.setSoTimeout(ProxyCacheUtils.getConfig().getConnTimeOut());
+                Log.e("ousy--", "2");
                 mSocketPool.submit(new SocketProcessTask(socket));
             } catch (Exception e) {
                 LogUtils.w(TAG, "WaitRequestsRun ServerSocket accept failed, exception=" + e);
             }
         } while (!mLocalServer.isClosed());
+        Log.e("ousy--", "3");
     }
 
     private void shutdown() {

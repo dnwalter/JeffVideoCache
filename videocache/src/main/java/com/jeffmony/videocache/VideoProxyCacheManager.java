@@ -5,6 +5,7 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -525,6 +526,7 @@ public class VideoProxyCacheManager {
      * @param percent
      */
     public void seekToCacheTaskFromClient(String url, float percent) {
+        Log.e("ousyousy", "seekToCacheTaskFromClient");
         VideoCacheTask cacheTask = mCacheTaskMap.get(url);
         if (cacheTask != null) {
             //当前seek到什么position在客户端不知道

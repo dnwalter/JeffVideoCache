@@ -60,7 +60,7 @@ public class SocketProcessTask implements Runnable {
                     String videoHeaders = videoInfoArr[2];
 
                     Map<String, String> headers = ProxyCacheUtils.str2Map(videoHeaders);
-                    Log.d(TAG, videoUrl + "\n" + videoTypeInfo + "\n" + videoHeaders);
+                    Log.e("ousyousy", videoUrl + "\n" + videoTypeInfo + "\n" + videoHeaders);
 
                     if (TextUtils.equals(ProxyCacheUtils.M3U8, videoTypeInfo)) {
                         response = new M3U8Response(request, videoUrl, headers, currentTime);
